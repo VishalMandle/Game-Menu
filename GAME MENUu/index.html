@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+<link rel="stylesheet" href="style.css">
+<body>
+  <audio autoplay loop>
+    <source src="bgm.mp3" type="audio/mp3">
+  </audio>
+  <audio id="hoverSound" src="buttons.mp3"></audio>
+  <div class="vignette"></div>
+<nav>
+  <img src="logo.png" id="img">
+  <ul>
+    <li><a href="about.html" class="xyz">Inventory</a></li>
+    <li>
+      <a href="about.html" class="xyz">Settings</a>
+      <ul>
+        <li><a href="about.html">SFX</a></li>
+        <li><a href="about.html">Audio</a></li>
+        <li><a href="about.html">Graphics</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="about.html"class="xyz">Controls</a>
+      <ul>
+        <li><a href="about.html">Vehcle Controls</a></li>
+        <li><a href="about.html">Gyroscope</a></li>
+        <li><a href="about.html">Aim Assist</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html" class="xyz">About</a></li>
+    <li>
+      <a href="about.html"class="xyz">My Account</a>
+      <ul>
+        <li><a href="about.html">Achievements</a></li>
+        <li><a href="about.html">Gun Skins</a></li>
+        <li><a href="about.html">Car Skins</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<main>
+  <img src="layer1.png" class="parallax bg">
+<img src="1-l.png" class="parallax l1">
+<img src="1-r.png" class="parallax r1">
+<img src="l-2.png" class="parallax l2">
+<img src="2-r.png" class="parallax r2">
+<img src="king.png" class="parallax king">
+<img src="moti.png" class="parallax diamond">
+<img id="game-logo"src="game-text.png">
+</main>
+<span class="mainmenu">
+  <a href="#" class="xyz">START GAME</a>
+  <a href="#" class="xyz">NEW GAME</a>
+  <a href="" class="xyz">LOAD GAME</a>
+</span>
+<div id="preloader"></div>
+<script>  
+const parallaxLayers = document.querySelectorAll(".parallax");
+
+window.addEventListener("mousemove", (e) => {
+    const Xvalue = (e.clientX - window.innerWidth / 2)/50;
+    const Yvalue = (e.clientY - window.innerHeight / 2)/50;
+
+    parallaxLayers.forEach((layer, index) => {
+        const xOffset = Xvalue * (index + 1);
+        const yOffset = Yvalue * (index + 1);
+        layer.style.transform = `translateX(calc(-50% + ${-xOffset}px)) translateY(calc(-50% + ${-yOffset}px))`;
+    });
+});
+var hoverElements = document.querySelectorAll('.xyz');
+hoverElements.forEach(function (element) {
+  element.addEventListener('mouseover', function () {
+    var hoverSound = document.getElementById('hoverSound');
+    hoverSound.play();
+  });
+  element.addEventListener('mouseout', function () {
+    var hoverSound = document.getElementById('hoverSound');
+    hoverSound.pause();
+    hoverSound.currentTime = 0;
+  });
+});       
+document.addEventListener("DOMContentLoaded", function() {
+  var preloader = document.getElementById("preloader");
+  setTimeout(function() {
+    preloader.style.display = "none";
+
+  },3000);
+});
+</script>
+</body>
+</html>

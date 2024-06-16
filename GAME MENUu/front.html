@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background:url("bg.gif") no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+div{
+    color:white;
+    position: absolute;
+    font-size: 50px;
+    letter-spacing: 5px;
+    font-weight: 50px;
+    top:100px;
+}
+div1{
+    color:white;
+    position: absolute;
+    top:200px;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-weight: 50px;
+}
+
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    padding:2px;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+#preloder{
+    background:url("bg.gif") no-repeat;
+    background-size: cover;
+
+}
+img{
+    height: 30px;
+    position: absolute;
+    left: 95px;
+    bottom:100px;
+}
+p{
+    color: white;
+    position: absolute;
+    bottom:50px;
+    left:30px;
+}
+p:hover{
+    color:rgb(255,0,0);
+    cursor: pointer;
+}
+li{
+    list-style: none;
+    color: white;
+    text-transform: uppercase;
+    position: absolute;
+    bottom:30px;
+    right:30px;
+    font-size: 12px;
+}
+li ul:hover{
+    color:rgb(255,0,0);
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <div class="x">AGE OF EGYPT</div>
+    <a href="index.html"><button class="glow-on-hover" type="button">ENTER THE THRIL !</button></a>
+    <div1 class="y">DIVE INTO THRILLING ACTION FROM THE EGYPTIAN DYNASTY</div1>
+    <img src="logo.png" alt="">
+    <p>SUCCESS VICTORY DEDICATION</p>
+    <li>DEVELOPER'S:-
+    <ul>Shivam Chouhan</ul>
+    <ul>Vishal Mandle</ul>
+    <ul>Divyanshu Dawar</ul>
+    </li>
+</body>
+</html>
